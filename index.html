@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +10,9 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Fredoka+One&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Fredoka+One&display=swap"
+        rel="stylesheet">
+
     <style>
         :root {
             --color-primary: #FF9AA2;
@@ -20,27 +22,27 @@
             --color-extra: #B5EAD7;
             --color-dark: #6A4C93;
         }
-        
+
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #fef6f9;
             color: #555;
             overflow-x: hidden;
         }
-        
+
         .navbar {
             background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             padding: 15px 0;
         }
-        
+
         .navbar-brand {
             font-family: 'Fredoka One', cursive;
             font-size: 1.8rem;
             color: white !important;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
-        
+
         .nav-link {
             color: white !important;
             font-weight: 500;
@@ -48,11 +50,11 @@
             transition: all 0.3s;
             position: relative;
         }
-        
+
         .nav-link:hover {
             transform: translateY(-3px);
         }
-        
+
         .nav-link::after {
             content: '';
             position: absolute;
@@ -64,11 +66,11 @@
             transition: width 0.3s;
             border-radius: 3px;
         }
-        
+
         .nav-link:hover::after {
             width: 100%;
         }
-        
+
         .hero-section {
             background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
             padding: 80px 0;
@@ -76,7 +78,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .hero-section::before {
             content: '';
             position: absolute;
@@ -88,27 +90,27 @@
             transform: rotate(15deg);
             z-index: 0;
         }
-        
+
         .hero-content {
             position: relative;
             z-index: 1;
         }
-        
+
         .hero-title {
             font-family: 'Fredoka One', cursive;
             font-size: 3.5rem;
             color: white;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
             margin-bottom: 20px;
         }
-        
+
         .hero-subtitle {
             color: white;
             font-size: 1.3rem;
             margin-bottom: 30px;
             opacity: 0.9;
         }
-        
+
         .btn-dif {
             background-color: white;
             color: var(--color-primary);
@@ -116,16 +118,16 @@
             padding: 12px 30px;
             border-radius: 50px;
             font-weight: 600;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             transition: all 0.3s;
         }
-        
+
         .btn-dif:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
             background-color: var(--color-light);
         }
-        
+
         .section-title {
             font-family: 'Fredoka One', cursive;
             color: var(--color-dark);
@@ -133,7 +135,7 @@
             display: inline-block;
             margin-bottom: 40px;
         }
-        
+
         .section-title::after {
             content: '';
             position: absolute;
@@ -144,24 +146,24 @@
             background: linear-gradient(to right, var(--color-primary), var(--color-accent));
             border-radius: 3px;
         }
-        
+
         .service-card {
             background-color: white;
             border-radius: 20px;
             padding: 30px;
             margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             transition: all 0.3s;
             border: 2px solid transparent;
             height: 100%;
         }
-        
+
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
             border-color: var(--color-primary);
         }
-        
+
         .service-icon {
             width: 80px;
             height: 80px;
@@ -173,23 +175,23 @@
             margin-bottom: 20px;
             color: white;
             font-size: 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
-        
+
         .news-card {
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             transition: all 0.3s;
             margin-bottom: 30px;
             background-color: white;
         }
-        
+
         .news-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
         }
-        
+
         .news-date {
             position: absolute;
             top: 15px;
@@ -201,26 +203,26 @@
             font-size: 0.8rem;
             font-weight: 600;
         }
-        
+
         .footer {
             background: linear-gradient(135deg, var(--color-dark), #4a2d7a);
             color: white;
             padding: 60px 0 20px;
         }
-        
+
         .footer-logo {
             font-family: 'Fredoka One', cursive;
             font-size: 2rem;
             margin-bottom: 20px;
         }
-        
+
         .footer-links h5 {
             font-weight: 600;
             margin-bottom: 20px;
             position: relative;
             display: inline-block;
         }
-        
+
         .footer-links h5::after {
             content: '';
             position: absolute;
@@ -231,45 +233,90 @@
             background: var(--color-primary);
             border-radius: 3px;
         }
-        
+
         .footer-links ul {
             list-style: none;
             padding: 0;
         }
-        
+
         .footer-links li {
             margin-bottom: 10px;
         }
-        
+
         .footer-links a {
-            color: rgba(255,255,255,0.7);
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
             transition: all 0.3s;
         }
-        
+
         .footer-links a:hover {
             color: white;
             padding-left: 5px;
         }
-        
+
+        #card1 {
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        #card1:hover {
+            background-color: #ff6666;
+            border: #ff2121 2px solid;
+            color: white;
+        }
+
+
+        #card2 {
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        #card2:hover {
+            background-color: #ff6666;
+            border: #ff2121 2px solid;
+            color: white;
+        }
+
+        #card3 {
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        #card3:hover {
+            background-color: #ff6666;
+            border: #ff2121 2px solid;
+            color: white;
+        }
+
+
         .social-icons a {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             width: 40px;
             height: 40px;
-            background-color: rgba(255,255,255,0.1);
+            background-color: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             color: white;
             margin-right: 10px;
             transition: all 0.3s;
         }
-        
+
         .social-icons a:hover {
             background-color: var(--color-primary);
             transform: translateY(-3px);
         }
-        
+
+        a img {
+            animation: none !important;
+            transition: none !important;
+            transform: none !important;
+            filter: none !important;
+        }
+
+        a img:hover {
+            box-shadow: none !important;
+            filter: none !important;
+            transform: none !important;
+        }
+
         .floating-shapes {
             position: absolute;
             width: 100%;
@@ -280,61 +327,65 @@
             z-index: 0;
             overflow: hidden;
         }
-        
+
         .shape {
             position: absolute;
             opacity: 0.2;
             border-radius: 50%;
             animation: float 15s infinite linear;
         }
-        
+
         @keyframes float {
             0% {
                 transform: translateY(0) rotate(0deg);
             }
+
             50% {
                 transform: translateY(-20px) rotate(180deg);
             }
+
             100% {
                 transform: translateY(0) rotate(360deg);
             }
         }
-        
+
         /* Efectos futuristas */
         .glow-effect {
             animation: glow 2s infinite alternate;
         }
-        
+
         @keyframes glow {
             from {
                 box-shadow: 0 0 5px rgba(255, 154, 162, 0.5);
             }
+
             to {
                 box-shadow: 0 0 20px rgba(255, 154, 162, 0.8);
             }
         }
-        
+
         .hover-3d {
             transition: transform 0.3s, box-shadow 0.3s;
         }
-        
+
         .hover-3d:hover {
             transform: perspective(500px) rotateX(5deg) rotateY(5deg);
-            box-shadow: 10px 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
         }
-        
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 2.5rem;
             }
-            
+
             .hero-subtitle {
                 font-size: 1.1rem;
             }
         }
     </style>
 </head>
+
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg sticky-top">
@@ -342,19 +393,20 @@
             <a class="navbar-brand" href="#">
                 <i class="fas fa-heart me-2"></i>DIF Joquicingo
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                 
+
                     <li class="nav-item">
                         <a class="nav-link" href="EnDesarrollo.html">Servicios</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="EnDesarrollo.html">Programas</a>
                     </li>
-                        <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" href="Transparencia.html">Transparencia</a>
                     </li>
                     <li class="nav-item">
@@ -371,39 +423,44 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="floating-shapes">
-            <div class="shape" style="width: 100px; height: 100px; background-color: var(--color-light); top: 10%; left: 5%;"></div>
-            <div class="shape" style="width: 150px; height: 150px; background-color: var(--color-extra); top: 60%; left: 80%;"></div>
+            <div class="shape"
+                style="width: 100px; height: 100px; background-color: var(--color-light); top: 10%; left: 5%;"></div>
+            <div class="shape"
+                style="width: 150px; height: 150px; background-color: var(--color-extra); top: 60%; left: 80%;"></div>
             <div class="shape" style="width: 80px; height: 80px; background-color: white; top: 30%; left: 70%;"></div>
-                  <div class="shape" style="width: 100px; height: 100px; background-color: var(--color-light); top: 10%; left: 5%;"></div>
-            <div class="shape" style="width: 150px; height: 150px; background-color: var(--color-extra); top: 60%; left: 80%;"></div>
+            <div class="shape"
+                style="width: 100px; height: 100px; background-color: var(--color-light); top: 10%; left: 5%;"></div>
+            <div class="shape"
+                style="width: 150px; height: 150px; background-color: var(--color-extra); top: 60%; left: 80%;"></div>
             <div class="shape" style="width: 80px; height: 80px; background-color: white; top: 30%; left: 70%;"></div>
-                  <div class="shape" style="width: 100px; height: 100px; background-color: var(--color-light); top: 10%; left: 5%;"></div>
-            <div class="shape" style="width: 150px; height: 150px; background-color: var(--color-extra); top: 60%; left: 80%;"></div>
+            <div class="shape"
+                style="width: 100px; height: 100px; background-color: var(--color-light); top: 10%; left: 5%;"></div>
+            <div class="shape"
+                style="width: 150px; height: 150px; background-color: var(--color-extra); top: 60%; left: 80%;"></div>
             <div class="shape" style="width: 80px; height: 80px; background-color: white; top: 30%; left: 70%;"></div>
         </div>
         <div class="container hero-content">
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <h1 class="hero-title">Juntos por tu Bienestar</h1>
-                    <p class="hero-subtitle">El Sistema para el Desarrollo Integral de la Familia del Estado de México trabaja cada día para brindar apoyo a las familias mexiquenses.</p>
+                    <p class="hero-subtitle">El Sistema para el Desarrollo Integral de la Familia del Estado de México
+                        trabaja cada día para brindar apoyo a las familias mexiquenses.</p>
                     <button class="btn btn-dif glow-effect">
                         <i class="fas fa-hands-helping me-2"></i>Conoce nuestros programas
                     </button>
                 </div>
-                <a  class="col-12 mt-2 mt-lg-0 col-lg-6 "  href="https://joquicingo.netlify.app">
-
-              
-                <div  class="mx-auto" >
-                    <img src="./assets/img/IMG_0864.PNG" alt="Familia feliz" class="img-fluid rounded-4 hover-3d" width="400">
-                </div>
-
-                  </a>
+                <a class="col-12 mt-2 mt-lg-0 col-lg-6 " href="https://joquicingo.netlify.app">
+                    <div class="mx-auto">
+                        <img src="./assets/img/Dif.png" alt="Familia feliz" class="img-fluid rounded-4 hover-3d"
+                            width="400">
+                    </div>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Servicios -->
-    <section class="py-5 my-5">
+    <section class="py-5 my-5" style="background-color: #fff8f9;">
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="section-title">Nuestros Servicios</h2>
@@ -411,38 +468,48 @@
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    <div class="service-card">
+                    <div class="service-card" id="card1">
                         <div class="service-icon">
                             <i class="fas fa-child"></i>
                         </div>
                         <h3>Asistencia Social</h3>
-                        <p>Programas de apoyo para niños, niñas, adolescentes y adultos mayores en situación vulnerable.</p>
-                        <a href="#" class="text-decoration-none" style="color: var(--color-primary); font-weight: 500;">No disponible <i class="fas fa-arrow-right ms-2"></i></a>
+                        <p>Programas de apoyo para niños, niñas, adolescentes y adultos mayores en situación vulnerable.
+                        </p>
+                        <a href="#" class="text-decoration-none"
+                            style="color: var(--color-primary); font-weight: 500;">No disponible <i
+                                class="fas fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="service-card">
+                    <div class="service-card" id="card2">
                         <div class="service-icon">
                             <i class="fas fa-utensils"></i>
                         </div>
                         <h3>Despensas Alimentarias</h3>
-                        <p>Apoyo alimentario para familias en situación de vulnerabilidad en todo el Estado de México.</p>
-                        <a href="#" class="text-decoration-none" style="color: var(--color-primary); font-weight: 500;">No disponible <i class="fas fa-arrow-right ms-2"></i></a>
+                        <p>Apoyo alimentario para familias en situación de vulnerabilidad en todo el Estado de México.
+                        </p>
+                        <a href="#" class="text-decoration-none"
+                            style="color: var(--color-primary); font-weight: 500;">No disponible <i
+                                class="fas fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="service-card">
+                    <div class="service-card" id="card3">
                         <div class="service-icon">
                             <i class="fas fa-heartbeat"></i>
                         </div>
                         <h3>Centros de Rehabilitación</h3>
-                        <p>Atención especializada para personas con discapacidad y programas de rehabilitación integral.</p>
-                        <a href="#" class="text-decoration-none" style="color: var(--color-primary); font-weight: 500;">No disponible  <i class="fas fa-arrow-right ms-2"></i></a>
+                        <p>Atención especializada para personas con discapacidad y programas de rehabilitación integral.
+                        </p>
+                        <a href="#" class="text-decoration-none"
+                            style="color: var(--color-primary); font-weight: 500;">No disponible <i
+                                class="fas fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
 
     <!-- Noticias -->
     <section class="py-5" style="background-color: var(--color-light);">
@@ -455,41 +522,48 @@
                 <div class="col-md-4">
                     <div class="news-card hover-3d">
                         <div class="position-relative">
-                            <img src="https://via.placeholder.com/400x250/B5EAD7/FFFFFF?text=Evento+DIF" class="img-fluid w-100" alt="Noticia 1">
+                            <img src="https://via.placeholder.com/400x250/B5EAD7/FFFFFF?text=Evento+DIF"
+                                class="img-fluid w-100" alt="Noticia 1">
                             <div class="news-date">Cargando...</div>
                         </div>
                         <div class="p-4">
                             <h4>Proximamente...</h4>
-                            <p>Inscripciones abiertas para el campamento de verano para niños en situación vulnerable.</p>
-                            <a href="#" class="btn btn-sm" style="background-color: var(--color-primary); color: white;">Proximamente</a>
+                            <p>Inscripciones abiertas para el campamento de verano para niños en situación vulnerable.
+                            </p>
+                            <a href="#" class="btn btn-sm"
+                                style="background-color: var(--color-primary); color: white;">Proximamente</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="news-card hover-3d">
                         <div class="position-relative">
-                            <img src="https://via.placeholder.com/400x250/FFDAC1/FFFFFF?text=Talleres+DIF" class="img-fluid w-100" alt="Noticia 2">
-                           <div class="news-date">Cargando...</div>
-                        </div>
-                        <div class="p-4">
-                            <h4>
-Talleres en proceso</h4>
-                            <p>Nuevos talleres de manualidades y actividades recreativas para adultos mayores.</p>
-                            <a href="#" class="btn btn-sm" style="background-color: var(--color-primary); color: white;">Proximamente</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="news-card hover-3d">
-                        <div class="position-relative">
-                            <img src="https://via.placeholder.com/400x250/E2F0CB/FFFFFF?text=Programa+DIF" class="img-fluid w-100" alt="Noticia 3">
+                            <img src="https://via.placeholder.com/400x250/FFDAC1/FFFFFF?text=Talleres+DIF"
+                                class="img-fluid w-100" alt="Noticia 2">
                             <div class="news-date">Cargando...</div>
                         </div>
                         <div class="p-4">
                             <h4>
-Convocatorias a Programas y Servicios</h4>
+                                Talleres en proceso</h4>
+                            <p>Nuevos talleres de manualidades y actividades recreativas para adultos mayores.</p>
+                            <a href="#" class="btn btn-sm"
+                                style="background-color: var(--color-primary); color: white;">Proximamente</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="news-card hover-3d">
+                        <div class="position-relative">
+                            <img src="https://via.placeholder.com/400x250/E2F0CB/FFFFFF?text=Programa+DIF"
+                                class="img-fluid w-100" alt="Noticia 3">
+                            <div class="news-date">Cargando...</div>
+                        </div>
+                        <div class="p-4">
+                            <h4>
+                                Convocatorias a Programas y Servicios</h4>
                             <p>Lanzamiento del nuevo programa integral de salud familiar en 20 municipios.</p>
-                            <a href="#" class="btn btn-sm" style="background-color: var(--color-primary); color: white;">Proximamente</a>
+                            <a href="#" class="btn btn-sm"
+                                style="background-color: var(--color-primary); color: white;">Proximamente</a>
                         </div>
                     </div>
                 </div>
@@ -506,9 +580,11 @@ Convocatorias a Programas y Servicios</h4>
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0">
                     <h2 class="section-title">Contáctanos</h2>
-                    <p class="lead mb-4">Estamos aquí para ayudarte. Ponte en contacto con nosotros para más información sobre nuestros programas y servicios.</p>
+                    <p class="lead mb-4">Estamos aquí para ayudarte. Ponte en contacto con nosotros para más información
+                        sobre nuestros programas y servicios.</p>
                     <div class="d-flex align-items-center mb-3">
-                        <div class="me-3" style="width: 50px; height: 50px; background-color: var(--color-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+                        <div class="me-3"
+                            style="width: 50px; height: 50px; background-color: var(--color-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
                             <i class="fas fa-phone"></i>
                         </div>
                         <div>
@@ -517,7 +593,8 @@ Convocatorias a Programas y Servicios</h4>
                         </div>
                     </div>
                     <div class="d-flex align-items-center mb-3">
-                        <div class="me-3" style="width: 50px; height: 50px; background-color: var(--color-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+                        <div class="me-3"
+                            style="width: 50px; height: 50px; background-color: var(--color-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
                             <i class="fas fa-envelope"></i>
                         </div>
                         <div>
@@ -526,7 +603,8 @@ Convocatorias a Programas y Servicios</h4>
                         </div>
                     </div>
                     <div class="d-flex align-items-center">
-                        <div class="me-3" style="width: 50px; height: 50px; background-color: var(--color-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+                        <div class="me-3"
+                            style="width: 50px; height: 50px; background-color: var(--color-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div>
@@ -536,20 +614,25 @@ Convocatorias a Programas y Servicios</h4>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="p-4 rounded-4" style="background-color: white; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                    <div class="p-4 rounded-4"
+                        style="background-color: white; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
                         <h4 class="mb-4" style="color: var(--color-dark);">Envía un mensaje</h4>
                         <form>
                             <div class="mb-3">
-                                <input type="text" class="form-control" placeholder="Nombre completo" style="padding: 12px; border-radius: 10px; border: 1px solid #eee;">
+                                <input type="text" class="form-control" placeholder="Nombre completo"
+                                    style="padding: 12px; border-radius: 10px; border: 1px solid #eee;">
                             </div>
                             <div class="mb-3">
-                                <input type="email" class="form-control" placeholder="Correo electrónico" style="padding: 12px; border-radius: 10px; border: 1px solid #eee;">
+                                <input type="email" class="form-control" placeholder="Correo electrónico"
+                                    style="padding: 12px; border-radius: 10px; border: 1px solid #eee;">
                             </div>
                             <div class="mb-3">
-                                <input type="text" class="form-control" placeholder="Asunto" style="padding: 12px; border-radius: 10px; border: 1px solid #eee;">
+                                <input type="text" class="form-control" placeholder="Asunto"
+                                    style="padding: 12px; border-radius: 10px; border: 1px solid #eee;">
                             </div>
                             <div class="mb-3">
-                                <textarea class="form-control" rows="4" placeholder="Mensaje" style="padding: 12px; border-radius: 10px; border: 1px solid #eee;"></textarea>
+                                <textarea class="form-control" rows="4" placeholder="Mensaje"
+                                    style="padding: 12px; border-radius: 10px; border: 1px solid #eee;"></textarea>
                             </div>
                             <button type="submit" class="btn btn-dif w-100">Enviar mensaje</button>
                         </form>
@@ -567,7 +650,8 @@ Convocatorias a Programas y Servicios</h4>
                     <div class="footer-logo">
                         <i class="fas fa-heart me-2"></i>DIF Edomex
                     </div>
-                    <p>Sistema para el Desarrollo Integral de la Familia del Estado de México. Trabajando por el bienestar de las familias mexiquenses.</p>
+                    <p>Sistema para el Desarrollo Integral de la Familia del Estado de México. Trabajando por el
+                        bienestar de las familias mexiquenses.</p>
                     <div class="social-icons mt-4">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -606,7 +690,8 @@ Convocatorias a Programas y Servicios</h4>
                         <ul>
                             <li><i class="fas fa-phone me-2"></i> 7xx xx2 xx3</li>
                             <li><i class="fas fa-envelope me-2"></i> contacto@joquicingo.gob.mx</li>
-                            <li><i class="fas fa-map-marker-alt me-2"></i> Presidencia Municipal, C. Leon Guzman 1, Centro, 52370 Joquicingo de León Guzmán, Toluca, México</li>
+                            <li><i class="fas fa-map-marker-alt me-2"></i> Presidencia Municipal, C. Leon Guzman 1,
+                                Centro, 52370 Joquicingo de León Guzmán, Toluca, México</li>
                             <li><i class="fas fa-clock me-2"></i> Lunes a Viernes: 9am - 6pm</li>
                         </ul>
                     </div>
@@ -632,13 +717,13 @@ Convocatorias a Programas y Servicios</h4>
     <!-- Custom JS -->
     <script>
         // Efecto de formas flotantes
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const floatingShapes = document.querySelector('.floating-shapes');
-            
+
             for (let i = 0; i < 10; i++) {
                 const shape = document.createElement('div');
                 shape.classList.add('shape');
-                
+
                 const size = Math.random() * 100 + 50;
                 const posX = Math.random() * 100;
                 const posY = Math.random() * 100;
@@ -646,7 +731,7 @@ Convocatorias a Programas y Servicios</h4>
                 const color = colors[Math.floor(Math.random() * colors.length)];
                 const delay = Math.random() * 15;
                 const duration = Math.random() * 10 + 10;
-                
+
                 shape.style.width = `${size}px`;
                 shape.style.height = `${size}px`;
                 shape.style.top = `${posY}%`;
@@ -654,10 +739,11 @@ Convocatorias a Programas y Servicios</h4>
                 shape.style.backgroundColor = color;
                 shape.style.animationDelay = `${delay}s`;
                 shape.style.animationDuration = `${duration}s`;
-                
+
                 floatingShapes.appendChild(shape);
             }
         });
     </script>
 </body>
+
 </html>
