@@ -8,66 +8,81 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Fredoka+One&display=swap" rel="stylesheet"/>
   <style>
-        :root {
-            --color-primary: #FF9AA2;
-            --color-secondary: #FFB7B2;
-            --color-accent: #FFDAC1;
-            --color-light: #E2F0CB;
-            --color-extra: #B5EAD7;
-            --color-dark: #6A4C93;
-        }
+    :root {
+      --color-primary: #FF9AA2;
+      --color-secondary: #FFB7B2;
+      --color-accent: #FFDAC1;
+      --color-light: #E2F0CB;
+      --color-extra: #B5EAD7;
+      --color-dark: #6A4C93;
+    }
+    
     body {
       font-family: 'Poppins', sans-serif;
       background-color: #fef6f9;
       color: #555;
     }
-     .navbar {
-            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            padding: 15px 0;
-        }
-        
-        .navbar-brand {
-            font-family: 'Fredoka One', cursive;
-            font-size: 1.8rem;
-            color: white !important;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-        
-        .nav-link {
-            color: white !important;
-            font-weight: 500;
-            margin: 0 10px;
-            transition: all 0.3s;
-            position: relative;
-        }
-        
-        .nav-link:hover {
-            transform: translateY(-3px);
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 3px;
-            bottom: 0;
-            left: 0;
-            background-color: white;
-            transition: width 0.3s;
-            border-radius: 3px;
-        }
-        
-        .nav-link:hover::after {
-            width: 100%;
-        }
+    
+    .navbar {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      padding: 10px 0;
+    }
+    
+    .navbar-brand {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.5rem;
+      color: white !important;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .navbar-toggler {
+      border: none;
+      color: white;
+    }
+    
+    .navbar-toggler:focus {
+      box-shadow: none;
+    }
+    
+    .nav-link {
+      color: white !important;
+      font-weight: 500;
+      margin: 5px 0;
+      transition: all 0.3s;
+      position: relative;
+      padding: 8px 15px !important;
+    }
+    
+    .nav-link:hover {
+      transform: translateY(-3px);
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 3px;
+      bottom: 0;
+      left: 15px;
+      background-color: white;
+      transition: width 0.3s;
+      border-radius: 3px;
+    }
+    
+    .nav-link:hover::after {
+      width: calc(100% - 30px);
+    }
+    
     .section-title {
       font-family: 'Fredoka One', cursive;
       color: #6A4C93;
-      margin-top: 60px;
-      margin-bottom: 30px;
+      margin-top: 30px;
+      margin-bottom: 20px;
       position: relative;
+      font-size: 1.8rem;
     }
+    
     .section-title::after {
       content: '';
       position: absolute;
@@ -78,151 +93,200 @@
       background-color: #FF9AA2;
       border-radius: 4px;
     }
+    
     .list-group-item {
       border: none;
-      padding: 12px 20px;
+      padding: 12px 15px;
       background-color: #fff;
-      border-radius: 12px;
-      margin-bottom: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      border-radius: 10px;
+      margin-bottom: 8px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
       transition: all 0.2s;
+      display: flex;
+      flex-direction: column;
     }
+    
     .list-group-item:hover {
-      transform: scale(1.02);
+      transform: scale(1.01);
       background-color: #fff5f7;
+    }
+    
+    .list-group-item .btn {
+      align-self: flex-end;
+      margin-top: 10px;
+    }
+    
+    @media (min-width: 768px) {
+      .navbar-brand {
+        font-size: 1.8rem;
+      }
+      
+      .section-title {
+        margin-top: 60px;
+        margin-bottom: 30px;
+        font-size: 2.2rem;
+      }
+      
+      .list-group-item {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 20px;
+      }
+      
+      .list-group-item .btn {
+        margin-top: 0;
+        margin-left: 15px;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .container {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+      
+      h3 {
+        font-size: 1.2rem;
+      }
+      
+      h4 {
+        font-size: 1.3rem;
+      }
     }
   </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <i class="fas fa-heart me-2"></i>DIF Joquicingo
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="EnDesarrollo.html">Programas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="EnDesarrollo.html">Servicios</a>
-                    </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="Transparencia.html">Transparencia</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="EnDesarrollo.html">Noticias</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="EnDesarrollo.html">Contacto</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-  <div class="container py-5">
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <i class="fas fa-heart me-2"></i>DIF Joquicingo
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="EnDesarrollo.html">Programas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="EnDesarrollo.html">Servicios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Transparencia.html">Transparencia</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="EnDesarrollo.html">Noticias</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="EnDesarrollo.html">Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="container py-4">
     <h1 class="section-title">SMDIF Joquicingo - Transparencia 2025</h1>
     <h3 class="mb-4 text-muted">1er Trimestre | Información conforme al CONAC</h3>
 
-    <h4 class="text-primary mt-5">TÍTULO IV: Información Contable</h4>
+    <h4 class="text-primary mt-4">TÍTULO IV: Información Contable</h4>
     <ul class="list-group mb-4">
-      <li class="list-group-item">1. Estado de Situación Financiera
-         <a href="./1er 2025/TITULO IV/1 Estado de Situacion Financiera.pdf"
-                                                    target="_blank" class="btn btn-primary btn-sm">Ver</a>
-
+      <li class="list-group-item">
+        <span>1. Estado de Situación Financiera</span>
+        <a href="./1er 2025/TITULO IV/1 Estado de Situacion Financiera.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
       </li>
-      <li class="list-group-item">2. Estado de Actividades
- <a href="./1er 2025/TITULO IV/2 Estado de actividades.pdf"
-                                                    target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      <li class="list-group-item">
+        <span>2. Estado de Actividades</span>
+        <a href="./1er 2025/TITULO IV/2 Estado de actividades.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
       </li>
-      <li class="list-group-item">3. Estado de Variación de la Hacienda Pública
-<a href="./1er 2025/TITULO IV//3 Estado Variacion Hda. Publica.pdf"
-                                                    target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      <li class="list-group-item">
+        <span>3. Estado de Variación de la Hacienda Pública</span>
+        <a href="./1er 2025/TITULO IV//3 Estado Variacion Hda. Publica.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
       </li>
-      <li class="list-group-item">4. Estado de Cambio en la Situación Financiera
-<a href="./1er 2025/TITULO IV///4 Estado Cambios Sit. Financiera.pdf"
-                                                    target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      <li class="list-group-item">
+        <span>4. Estado de Cambio en la Situación Financiera</span>
+        <a href="./1er 2025/TITULO IV///4 Estado Cambios Sit. Financiera.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
       </li>
-      <li class="list-group-item">5. Estado de Flujo de Efectivo
-<a href="./1er 2025/TITULO IV//5 Estado Flujo de Efectivo.pdf"
-                                                    target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      <li class="list-group-item">
+        <span>5. Estado de Flujo de Efectivo</span>
+        <a href="./1er 2025/TITULO IV//5 Estado Flujo de Efectivo.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
       </li>
-      <li class="list-group-item">6. Pasivos Contingentes
-<a href="./1er 2025/TITULO IV/6 Pasivos Contingentes.pdf"
-                                                    target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      <li class="list-group-item">
+        <span>6. Pasivos Contingentes</span>
+        <a href="./1er 2025/TITULO IV/6 Pasivos Contingentes.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
       </li>
-      <li class="list-group-item">7. Notas a los Estados Financieros
-<a href="./1er 2025/TITULO IV/7 Notas al Estado.pdf"
-                                                    target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      <li class="list-group-item">
+        <span>7. Notas a los Estados Financieros</span>
+        <a href="./1er 2025/TITULO IV/7 Notas al Estado.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
       </li>
-      <li class="list-group-item">8. Estado Analítico del Activo
-<a href="./1er 2025/TITULO IV/8 Estado Analitico del Activo.pdf"
-                                                    target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      <li class="list-group-item">
+        <span>8. Estado Analítico del Activo</span>
+        <a href="./1er 2025/TITULO IV/8 Estado Analitico del Activo.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
       </li>
-      <li class="list-group-item">9. Estado Analítico de la Deuda y Obligaciones
-<a href="./1er 2025/TITULO IV/9 Estado Deuda y otros Pasivos.pdf"
-                                                    target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      <li class="list-group-item">
+        <span>9. Estado Analítico de la Deuda y Obligaciones</span>
+        <a href="./1er 2025/TITULO IV/9 Estado Deuda y otros Pasivos.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
       </li>
-      <li class="list-group-item">10. Montos Pagados por Ayudas y Subsidios
-<a href="./1er 2025/TITULO IV/10 Montos y Ayudas.pdf"
-                                                    target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      <li class="list-group-item">
+        <span>10. Montos Pagados por Ayudas y Subsidios</span>
+        <a href="./1er 2025/TITULO IV/10 Montos y Ayudas.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
       </li>
-      <li class="list-group-item">11. Estado Analítico de Ingresos
-<a href="./1er 2025/TITULO IV/11 Estado Analitico Ingresos.pdf"
-                                                    target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      <li class="list-group-item">
+        <span>11. Estado Analítico de Ingresos</span>
+        <a href="./1er 2025/TITULO IV/11 Estado Analitico Ingresos.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
       </li>
-      <li class="list-group-item">12. Estado Analítico de Egresos por Objeto de Gasto
-<a href="./1er 2025/TITULO IV/12 Estado Analitico Objeto del Gasto.pdf"
-                                                    target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      <li class="list-group-item">
+        <span>12. Estado Analítico de Egresos por Objeto de Gasto</span>
+        <a href="./1er 2025/TITULO IV/12 Estado Analitico Objeto del Gasto.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
       </li>
-      <li class="list-group-item">13. Estado Analítico de Egresos por Clasificación Económica
-<a href="./1er 2025/TITULO IV/13 Clasif. Economica.pdf"
-                                                    target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      <li class="list-group-item">
+        <span>13. Estado Analítico de Egresos por Clasificación Económica</span>
+        <a href="./1er 2025/TITULO IV/13 Clasif. Economica.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
       </li>
-      <li class="list-group-item">14. Estado Analítico de Egresos por Clasificación Administrativa
-<a href="./1er 2025/TITULO IV/14 Clasif. Administrativa.pdf"
-                                                    target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      <li class="list-group-item">
+        <span>14. Estado Analítico de Egresos por Clasificación Administrativa</span>
+        <a href="./1er 2025/TITULO IV/14 Clasif. Administrativa.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
       </li>
-      <li class="list-group-item">15. Estado Analítico de Egresos por Clasificación Funcional
-<a href="./1er 2025/TITULO IV/15 Clasif. Finalidad y Funcion.pdf"
-                                                    target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      <li class="list-group-item">
+        <span>15. Estado Analítico de Egresos por Clasificación Funcional</span>
+        <a href="./1er 2025/TITULO IV/15 Clasif. Finalidad y Funcion.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
       </li>
-      <li class="list-group-item">16. Estado Analítico de Egresos por Clasificación Programática
-<a href="./1er 2025/TITULO IV/16 Clasif. Programatica.pdf"
-                                                    target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      <li class="list-group-item">
+        <span>16. Estado Analítico de Egresos por Clasificación Programática</span>
+        <a href="./1er 2025/TITULO IV/16 Clasif. Programatica.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
       </li>
     </ul>
 
-    <h4 class="text-primary mt-5">TÍTULO V: Información Programática</h4>
-    <ul class="list-group mb-5">
-      <li class="list-group-item">1. Montos Pagados por Ayudas y Subsidios
-<a href="./1er 2025/TITULO V/1 Montos y Ayudas.pdf"
-                                                    target="_blank" class="btn btn-primary btn-sm">Ver</a>
+    <h4 class="text-primary mt-4">TÍTULO V: Información Programática</h4>
+    <ul class="list-group mb-4">
+      <li class="list-group-item">
+        <span>1. Montos Pagados por Ayudas y Subsidios</span>
+        <a href="./1er 2025/TITULO V/1 Montos y Ayudas.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
       </li>
-      <li class="list-group-item">2. Endeudamiento Neto
-<a href="./1er 2025/TITULO V/2 Endeudamiento neto.pdf"
-                                                    target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      <li class="list-group-item">
+        <span>2. Endeudamiento Neto</span>
+        <a href="./1er 2025/TITULO V/2 Endeudamiento neto.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
       </li>
-      <li class="list-group-item">3. Intereses de la Deuda
-<a href="./1er 2025/TITULO V/3 Intereses de la Deuda.pdf"
-                                                    target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      <li class="list-group-item">
+        <span>3. Intereses de la Deuda</span>
+        <a href="./1er 2025/TITULO V/3 Intereses de la Deuda.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
       </li>
-      <li class="list-group-item">4. Programas y Proyectos de Inversión
-<a href="./1er 2025/TITULO V/4 Proyectos de Inversion.pdf"
-                                                    target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      <li class="list-group-item">
+        <span>4. Programas y Proyectos de Inversión</span>
+        <a href="./1er 2025/TITULO V/4 Proyectos de Inversion.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
       </li>
-        <li class="list-group-item">5. Indicadores de resultados
-<a href="./1er 2025/TITULO V/5 Indicadores de Resultados.pdf"
-                                                    target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      <li class="list-group-item">
+        <span>5. Indicadores de resultados</span>
+        <a href="./1er 2025/TITULO V/5 Indicadores de Resultados.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
       </li>
     </ul>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
