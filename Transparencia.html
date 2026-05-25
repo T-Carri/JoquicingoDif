@@ -1,190 +1,651 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Transparencia 2026 | SMDIF Joquicingo</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700&display=swap');
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'Nunito',sans-serif;background:#fef6f9;color:#555;font-size:14px}
-  .navbar{background:linear-gradient(135deg,#FF9AA2,#FFB7B2);padding:10px 20px;display:flex;align-items:center;gap:10px;box-shadow:0 3px 12px rgba(0,0,0,0.1);position:sticky;top:0;z-index:100}
-  .brand{font-family:'Fredoka One',cursive;font-size:1.4rem;color:white;text-shadow:1px 1px 3px rgba(0,0,0,0.2);flex:1}
-  .btn-urls{background:white;color:#FF9AA2;border:none;padding:7px 14px;border-radius:20px;font-family:'Nunito',sans-serif;font-weight:700;font-size:12px;cursor:pointer;display:flex;align-items:center;gap:6px;transition:all 0.2s;white-space:nowrap}
-  .btn-urls:hover{background:#fff5f7;transform:scale(1.03)}
-  .container{max-width:900px;margin:0 auto;padding:20px 16px}
-  .page-title{font-family:'Fredoka One',cursive;color:#6A4C93;font-size:1.7rem;margin-bottom:4px}
-  .page-sub{color:#aaa;font-size:0.85rem;margin-bottom:24px}
-  .quarter-block{margin-bottom:32px}
-  .q-header{background:linear-gradient(135deg,#FF9AA2,#FFB7B2);color:white;border-radius:12px;padding:10px 16px;font-family:'Fredoka One',cursive;font-size:1.1rem;margin-bottom:14px;display:flex;align-items:center;gap:8px}
-  .titulo-label{color:#6A4C93;font-weight:700;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;margin:12px 0 8px;padding-left:4px}
-  .doc-item{background:white;border-radius:10px;padding:11px 15px;margin-bottom:7px;box-shadow:0 2px 8px rgba(0,0,0,0.05);display:flex;justify-content:space-between;align-items:center;transition:all 0.2s;gap:10px}
-  .doc-item:hover{transform:translateX(3px);background:#fff5f7}
-  .doc-name{font-size:0.82rem;color:#555;flex:1}
-  .btn-ver{background:linear-gradient(135deg,#FF9AA2,#e8818b);color:white;border:none;padding:5px 14px;border-radius:20px;font-size:0.75rem;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;white-space:nowrap;transition:all 0.2s;text-decoration:none;display:inline-block}
-  .btn-ver:hover{opacity:0.85;transform:scale(1.04)}
-  .btn-ver.no-url{background:#ddd;color:#999;cursor:not-allowed;pointer-events:none}
-  .badge-count{background:#FFE0E4;color:#c7647d;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:10px}
-
-  /* MODAL */
-  .overlay{position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:200;opacity:0;pointer-events:none;transition:opacity 0.25s}
-  .overlay.open{opacity:1;pointer-events:all}
-  .modal{position:fixed;top:0;right:0;height:100%;width:360px;max-width:95vw;background:white;z-index:201;transform:translateX(100%);transition:transform 0.3s ease;display:flex;flex-direction:column;box-shadow:-4px 0 20px rgba(0,0,0,0.15)}
-  .modal.open{transform:translateX(0)}
-  .modal-head{background:linear-gradient(135deg,#FF9AA2,#FFB7B2);padding:16px;color:white;display:flex;justify-content:space-between;align-items:center}
-  .modal-head h2{font-family:'Fredoka One',cursive;font-size:1.1rem;color:white}
-  .modal-close{background:none;border:none;color:white;font-size:1.4rem;cursor:pointer;line-height:1}
-  .modal-body{flex:1;overflow-y:auto;padding:16px}
-  .modal-q{margin-bottom:18px}
-  .modal-q-title{font-weight:700;color:#6A4C93;font-size:0.8rem;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.4px}
-  .url-row{margin-bottom:8px;padding:8px;border-radius:8px;background:#f9f9f9;border:1px solid #f0e0e5}
-  .url-label{font-size:0.72rem;color:#888;margin-bottom:3px}
-  .url-input{width:100%;border:1px solid #e0c8cc;border-radius:6px;padding:5px 8px;font-size:0.72rem;font-family:'Nunito',sans-serif;color:#555;background:white}
-  .url-input:focus{outline:none;border-color:#FF9AA2}
-  .modal-footer{padding:12px 16px;border-top:1px solid #f0e0e5;display:flex;gap:8px}
-  .btn-save{background:linear-gradient(135deg,#FF9AA2,#e8818b);color:white;border:none;padding:8px 18px;border-radius:20px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.8rem;cursor:pointer;flex:1}
-  .btn-save:hover{opacity:0.88}
-  .btn-cancel{background:#f0e0e5;color:#c7647d;border:none;padding:8px 14px;border-radius:20px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.8rem;cursor:pointer}
-  .info-tag{display:inline-block;background:#E2F0CB;color:#4a7a2a;font-size:0.68rem;font-weight:700;padding:2px 7px;border-radius:8px;margin-bottom:10px}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Transparencia 2025 - 1er Trimestre | SMDIF Joquicingo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Fredoka+One&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --color-primary: #FF9AA2;
+      --color-secondary: #FFB7B2;
+      --color-accent: #FFDAC1;
+      --color-light: #E2F0CB;
+      --color-extra: #B5EAD7;
+      --color-dark: #6A4C93;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fef6f9;
+      color: #555;
+    }
+    
+    .navbar {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      padding: 10px 0;
+    }
+    
+    .navbar-brand {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.5rem;
+      color: white !important;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .navbar-toggler {
+      border: none;
+      color: white;
+    }
+    
+    .navbar-toggler:focus {
+      box-shadow: none;
+    }
+    
+    .nav-link {
+      color: white !important;
+      font-weight: 500;
+      margin: 5px 0;
+      transition: all 0.3s;
+      position: relative;
+      padding: 8px 15px !important;
+    }
+    
+    .nav-link:hover {
+      transform: translateY(-3px);
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 3px;
+      bottom: 0;
+      left: 15px;
+      background-color: white;
+      transition: width 0.3s;
+      border-radius: 3px;
+    }
+    
+    .nav-link:hover::after {
+      width: calc(100% - 30px);
+    }
+    
+    .section-title {
+      font-family: 'Fredoka One', cursive;
+      color: #6A4C93;
+      margin-top: 30px;
+      margin-bottom: 20px;
+      position: relative;
+      font-size: 1.8rem;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 4px;
+      bottom: -10px;
+      left: 0;
+      background-color: #FF9AA2;
+      border-radius: 4px;
+    }
+    
+    .list-group-item {
+      border: none;
+      padding: 12px 15px;
+      background-color: #fff;
+      border-radius: 10px;
+      margin-bottom: 8px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+      transition: all 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .list-group-item:hover {
+      transform: scale(1.01);
+      background-color: #fff5f7;
+    }
+    
+    .list-group-item .btn {
+      align-self: flex-end;
+      margin-top: 10px;
+    }
+    
+    @media (min-width: 768px) {
+      .navbar-brand {
+        font-size: 1.8rem;
+      }
+      
+      .section-title {
+        margin-top: 60px;
+        margin-bottom: 30px;
+        font-size: 2.2rem;
+      }
+      
+      .list-group-item {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 20px;
+      }
+      
+      .list-group-item .btn {
+        margin-top: 0;
+        margin-left: 15px;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .container {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+      
+      h3 {
+        font-size: 1.2rem;
+      }
+      
+      h4 {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
 </head>
 <body>
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" >
+        <i class="fas fa-heart me-2"></i>DIF Joquicingo
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <!-- <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="EnDesarrollo.html">Programas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="EnDesarrollo.html">Servicios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Transparencia.html">Transparencia</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="EnDesarrollo.html">Noticias</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="EnDesarrollo.html">Contacto</a>
+          </li>
+        </ul> -->
+      </div>
+    </div>
+  </nav>
+  
+  <div class="container py-4">
+    <h1 class="section-title">SMDIF Joquicingo - CONAC AÑO 2025</h1>
+    <h3 class="mb-4 text-muted">1er Trimestre | Información conforme al CONAC</h3>
 
-<div class="navbar">
-  <span class="brand">❤️ DIF Joquicingo</span>
-  <button class="btn-urls" onclick="openModal()">📋 Ver lista de URLs</button>
-</div>
+    <h4 class="text-primary mt-4">TÍTULO IV: Información Contable</h4>
+    <ul class="list-group mb-4">
+      <li class="list-group-item">
+        <span>1. Estado de Situación Financiera</span>
+        <a href="./1er 2025/TITULO IV/1 Estado de Situacion Financiera.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+      <li class="list-group-item">
+        <span>2. Estado de Actividades</span>
+        <a href="./1er 2025/TITULO IV/2 Estado de actividades.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+      <li class="list-group-item">
+        <span>3. Estado de Variación de la Hacienda Pública</span>
+        <a href="./1er 2025/TITULO IV//3 Estado Variacion Hda. Publica.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+      <li class="list-group-item">
+        <span>4. Estado de Cambio en la Situación Financiera</span>
+        <a href="./1er 2025/TITULO IV///4 Estado Cambios Sit. Financiera.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+      <li class="list-group-item">
+        <span>5. Estado de Flujo de Efectivo</span>
+        <a href="./1er 2025/TITULO IV//5 Estado Flujo de Efectivo.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+      <li class="list-group-item">
+        <span>6. Pasivos Contingentes</span>
+        <a href="./1er 2025/TITULO IV/6 Pasivos Contingentes.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+      <li class="list-group-item">
+        <span>7. Notas a los Estados Financieros</span>
+        <a href="./1er 2025/TITULO IV/7 Notas al Estado.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+      <li class="list-group-item">
+        <span>8. Estado Analítico del Activo</span>
+        <a href="./1er 2025/TITULO IV/8 Estado Analitico del Activo.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+      <li class="list-group-item">
+        <span>9. Estado Analítico de la Deuda y Obligaciones</span>
+        <a href="./1er 2025/TITULO IV/9 Estado Deuda y otros Pasivos.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+      <li class="list-group-item">
+        <span>10. Montos Pagados por Ayudas y Subsidios</span>
+        <a href="./1er 2025/TITULO IV/10 Montos y Ayudas.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+      <li class="list-group-item">
+        <span>11. Estado Analítico de Ingresos</span>
+        <a href="./1er 2025/TITULO IV/11 Estado Analitico Ingresos.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+      <li class="list-group-item">
+        <span>12. Estado Analítico de Egresos por Objeto de Gasto</span>
+        <a href="./1er 2025/TITULO IV/12 Estado Analitico Objeto del Gasto.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+      <li class="list-group-item">
+        <span>13. Estado Analítico de Egresos por Clasificación Económica</span>
+        <a href="./1er 2025/TITULO IV/13 Clasif. Economica.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+      <li class="list-group-item">
+        <span>14. Estado Analítico de Egresos por Clasificación Administrativa</span>
+        <a href="./1er 2025/TITULO IV/14 Clasif. Administrativa.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+      <li class="list-group-item">
+        <span>15. Estado Analítico de Egresos por Clasificación Funcional</span>
+        <a href="./1er 2025/TITULO IV/15 Clasif. Finalidad y Funcion.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+      <li class="list-group-item">
+        <span>16. Estado Analítico de Egresos por Clasificación Programática</span>
+        <a href="./1er 2025/TITULO IV/16 Clasif. Programatica.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+    </ul>
 
-<div class="container" id="app"></div>
+    <h4 class="text-primary mt-4">TÍTULO V: Información Programática</h4>
+    <ul class="list-group mb-4">
+      <li class="list-group-item">
+        <span>1. Montos Pagados por Ayudas y Subsidios</span>
+        <a href="./1er 2025/TITULO V/1 Montos y Ayudas.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+      <li class="list-group-item">
+        <span>2. Endeudamiento Neto</span>
+        <a href="./1er 2025/TITULO V/2 Endeudamiento neto.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+      <li class="list-group-item">
+        <span>3. Intereses de la Deuda</span>
+        <a href="./1er 2025/TITULO V/3 Intereses de la Deuda.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+      <li class="list-group-item">
+        <span>4. Programas y Proyectos de Inversión</span>
+        <a href="./1er 2025/TITULO V/4 Proyectos de Inversion.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+      <li class="list-group-item">
+        <span>5. Indicadores de resultados</span>
+        <a href="./1er 2025/TITULO V/5 Indicadores de Resultados.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+    </ul>
 
-<div class="overlay" id="overlay" onclick="closeModal()"></div>
-<div class="modal" id="modal">
-  <div class="modal-head">
-    <h2>📋 Gestión de URLs</h2>
-    <button class="modal-close" onclick="closeModal()">✕</button>
+
+
+
+      <h3 class="mb-4 text-muted">2do Trimestre | Información conforme al CONAC</h3>
+
+    <h4 class="text-primary mt-4">TÍTULO IV: Información Contable</h4>
+    <ul class="list-group mb-4">
+      <li class="list-group-item">
+        <span>1. Estado de Situación Financiera</span>
+        <a href="./2do 2025/TITULO IV/1 EDO. DE SITUACION FINANCIERA.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+      <li class="list-group-item">
+        <span>2. Estado de Actividades</span>
+        <a href="./2do 2025/TITULO IV/2 EDO. DE ACTIVIDADES.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+      <li class="list-group-item">
+        <span>3. Estado de Variación de la Hacienda Pública</span>
+        <a href="./2do 2025/TITULO IV/3 EDO. DE VARIACION EN LA HACIENDA PUBLICA.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+      <li class="list-group-item">
+        <span>4. Estado de Cambio en la Situación Financiera</span>
+        <a href="./2do 2025/TITULO IV/4 EDO. CAMBOS EN LA SIT. FRA.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+      <li class="list-group-item">
+        <span>5. Estado de Flujo de Efectivo</span>
+        <a href="./2do 2025/TITULO IV/5 EDO. FLUJO DE EFVO.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+      <li class="list-group-item">
+        <span>6. Pasivos Contingentes</span>
+        <a href="./2do 2025/TITULO IV/6 PASIVOS CONTINGENTES.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+      <li class="list-group-item">
+        <span>7. Notas a los Estados Financieros</span>
+        <a href="./2do 2025/TITULO IV/7 NOTAS A LOS EDOS. FROS.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+      <li class="list-group-item">
+        <span>8. Estado Analítico del Activo</span>
+        <a href="./2do 2025/TITULO IV/8 EDO. ANALITICO DEL ACTIVO.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+      <li class="list-group-item">
+        <span>9. Estado Analítico de la Deuda y Obligaciones</span>
+        <a href="./2do 2025/TITULO IV/9 EDO. ANALITOCO DEUDA Y OTROS PASIVOS.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+      <li class="list-group-item">
+        <span>10. Montos Pagados por Ayudas y Subsidios</span>
+        <a href="./2do 2025/TITULO IV/10 MONTOS PAGADOS POR AYUDAS Y SUBSIDIOS - copia.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+      <li class="list-group-item">
+        <span>11. Estado Analítico de Ingresos</span>
+        <a href="./2do 2025/TITULO IV/11 EDO. ANALITICO DE INGRESOS.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+      <li class="list-group-item">
+        <span>12. Estado Analítico de Egresos por Objeto de Gasto</span>
+        <a href="./2do 2025/TITULO IV/12 EDO. A. PRESUP. EGRE. CLASIFIC. OBJETO DEL GASTO.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+      <li class="list-group-item">
+        <span>13. Estado Analítico de Egresos por Clasificación Económica</span>
+        <a href="./2do 2025/TITULO IV/13 EDO. A. PRESUP. EGRE. CLASIFIC. ECONOMICA.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+      <li class="list-group-item">
+        <span>14. Estado Analítico de Egresos por Clasificación Administrativa</span>
+        <a href="./2do 2025/TITULO IV/14 EDO. A. PRESUP. EGRE. CLASIFIC. ADMTVA.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+      <li class="list-group-item">
+        <span>15. Estado Analítico de Egresos por Clasificación Funcional</span>
+        <a href="./2do 2025/TITULO IV/15 EDO. A. PRESUP. EGRE. CLASIFIC. FUNCIONAL.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+      <li class="list-group-item">
+        <span>16. Estado Analítico de Egresos por Clasificación Programática</span>
+        <a href="./2do 2025/TITULO IV/16 GASTO POR CATEGORIA PROGRAMATICA.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+    </ul>
+
+    <h4 class="text-primary mt-4">TÍTULO V: Información Programática</h4>
+    <ul class="list-group mb-4">
+      <li class="list-group-item">
+        <span>1. Montos Pagados por Ayudas y Subsidios</span>
+        <a href="./2do 2025/TITULO V/1a MONTOS PAGADOS POR AYUDAS Y SUBSIDIOS.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+      <li class="list-group-item">
+        <span>2. Endeudamiento Neto</span>
+        <a href="./2do 2025/TITULO V/2a ENDEUDAMIENTO NETO.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+      <li class="list-group-item">
+        <span>3. Intereses de la Deuda</span>
+        <a href="./2do 2025/TITULO V/3aINTERESES DE LA DEUDA.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+      <li class="list-group-item">
+        <span>4. Programas y Proyectos de Inversión</span>
+        <a href="./2do 2025/TITULO V/4a PROGRAMAS Y PROYECTOS DE INVERSION.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+      <li class="list-group-item">
+        <span>5. Indicadores de resultados</span>
+        <a href="https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2F2025%2FV%2Findicadores%20de%20resultados%20abril-junio.pdf?alt=media&token=be4f07ae-a04c-4561-a847-ee0f739fb505" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+       <li class="list-group-item">
+        <span>6. Relacion de bienes muebles e inmuebles</span>
+        <a href="./2do 2025/TITULO V/6a RELACION DE BIENES MUEBLES E INMUEBLES.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+    </ul>
+
+
+ <h3 class="mb-4 text-muted">3er Trimestre | Información conforme al CONAC</h3>
+    <h4 class="text-primary mt-4">TÍTULO IV: Información Contable y Presupuestal</h4>
+
+<ul class="list-group mb-4">
+  <li class="list-group-item">
+        <span>D.2.1 Edo Actividades</span>
+        <a href="./3er 2025/TITULO IV/D.2.1 Edo Actividades.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+
+        <li class="list-group-item">
+        <span>D.2.2 Estado situacion financiera</span>
+        <a href="./3er 2025/TITULO IV/D.2.2 Edo Sit Financ.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+
+
+        <li class="list-group-item">
+        <span>D.2.3 Estado Var Hacienda Publica</span>
+        <a href="./3er 2025/TITULO IV/D.2.3 Edo Var Hda P.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+
+
+        <li class="list-group-item">
+        <span>D.2.4 Estado Cambios SF</span>
+        <a href="./3er 2025/TITULO IV/D.2.4 Edo Cambios SF.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+
+  <li class="list-group-item">
+        <span>D.2.5 Estado flujo ef</span>
+        <a href="./3er 2025/TITULO IV/D.2.5 Edo Flujo Ef.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+
+
+       <li class="list-group-item">
+        <span>D.2.7 Notas E fin</span>
+        <a href="./3er 2025/TITULO IV/D.2.7 Notas E Fin.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+
+
+       <li class="list-group-item">
+        <span>D.2.8 Notas A activo</span>
+        <a href="./3er 2025/TITULO IV/D.2.8 Edo A Activo.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+
+
+        <li class="list-group-item">
+        <span>D.2.9 Edo A Deuda</span>
+        <a href="./3er 2025/TITULO IV/D.2.9 Edo A Deuda.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+
+       <li class="list-group-item">
+        <span>D.3.1 Edo A Ingresos</span>
+        <a href="./3er 2025/TITULO IV/D.3.1 Edo A Ingresos.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+   <li class="list-group-item">
+        <span>D.3.2 Clasificación Administrativa</span>
+        <a href="./3er 2025/TITULO IV/D.3.2 Clasif Admtva.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+
+  <li class="list-group-item">
+        <span>D.3.3 Clasificación Economica</span>
+        <a href="./3er 2025/TITULO IV/D.3.3 Clasif Econom.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+
+        <li class="list-group-item">
+        <span>D.3.4 Clasificación Obj Gasto</span>
+        <a href="./3er 2025/TITULO IV/D.3.4 Clasif Obj Gasto.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+
+
+  <li class="list-group-item">
+        <span>D.3.5 Cladificacion Funcional</span>
+        <a href="./3er 2025/TITULO IV/D.3.5 Clasif Funcional.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+
+
+
+  <li class="list-group-item">
+        <span>D.4.1 Categoria Programatica</span>
+        <a href="./3er 2025/TITULO IV/D.4.1 Categ programatica.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+
+</ul>
+
+
+
+  <h4 class="text-primary mt-4">TÍTULO V:</h4>
+
+<ul class="list-group mb-4">
+   <li class="list-group-item">
+        <span>D.1.11 Montos por ayudas</span>
+        <a href="./3er 2025/TITULO V/D.1.11 Montos por ayudas.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+  <li class="list-group-item">
+        <span>D.2.6 Pasivos Conting</span>
+        <a href="./3er 2025/TITULO V/D.2.6 Pasivos Conting.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+
+<li class="list-group-item">
+        <span>D.3.6 Endeudamiento neto</span>
+        <a href="./3er 2025/TITULO V/D.3.6 Endeudamiento Neto.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+
+
+      <li class="list-group-item">
+        <span>D.3.7 Int Deuda</span>
+        <a href="./3er 2025/TITULO V/D.3.7 Int Deuda.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+
+
+      <li class="list-group-item">
+        <span>D.4.2 Indicadores</span>
+        <a href="./3er 2025/TITULO V/D.4.2 Indicadores.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+
+
+       <li class="list-group-item">
+        <span>D.4.3 Programas y proyectos</span>
+        <a href="./3er 2025/TITULO V/D.4.3 Programas y Proyectos.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+
+</ul>
+
+
+
+   
+
+     <h3 class="mb-4 text-muted">4to Trimestre | Información conforme al CONAC</h3>
+    <h4 class="text-primary mt-4">TÍTULO IV: Información Contable y Presupuestal</h4>
+
+<ul class="list-group mb-4">
+  <li class="list-group-item">
+        <span>D.2.1 Edo Actividades</span>
+        <a href="./3er 2025/TITULO IV/D.2.1 Edo Actividades.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+
+        <li class="list-group-item">
+        <span>D.2.2 Estado situacion financiera</span>
+        <a href="./3er 2025/TITULO IV/D.2.2 Edo Sit Financ.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+
+
+        <li class="list-group-item">
+        <span>D.2.3 Estado Var Hacienda Publica</span>
+        <a href="./3er 2025/TITULO IV/D.2.3 Edo Var Hda P.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+
+
+        <li class="list-group-item">
+        <span>D.2.4 Estado Cambios SF</span>
+        <a href="./3er 2025/TITULO IV/D.2.4 Edo Cambios SF.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+
+  <li class="list-group-item">
+        <span>D.2.5 Estado flujo ef</span>
+        <a href="./3er 2025/TITULO IV/D.2.5 Edo Flujo Ef.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+
+
+       <li class="list-group-item">
+        <span>D.2.7 Notas E fin</span>
+        <a href="./3er 2025/TITULO IV/D.2.7 Notas E Fin.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+
+
+       <li class="list-group-item">
+        <span>D.2.8 Notas A activo</span>
+        <a href="./3er 2025/TITULO IV/D.2.8 Edo A Activo.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+
+
+        <li class="list-group-item">
+        <span>D.2.9 Edo A Deuda</span>
+        <a href="./3er 2025/TITULO IV/D.2.9 Edo A Deuda.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+
+       <li class="list-group-item">
+        <span>D.3.1 Edo A Ingresos</span>
+        <a href="./3er 2025/TITULO IV/D.3.1 Edo A Ingresos.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+   <li class="list-group-item">
+        <span>D.3.2 Clasificación Administrativa</span>
+        <a href="./3er 2025/TITULO IV/D.3.2 Clasif Admtva.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+
+  <li class="list-group-item">
+        <span>D.3.3 Clasificación Economica</span>
+        <a href="./3er 2025/TITULO IV/D.3.3 Clasif Econom.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+
+        <li class="list-group-item">
+        <span>D.3.4 Clasificación Obj Gasto</span>
+        <a href="./3er 2025/TITULO IV/D.3.4 Clasif Obj Gasto.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+
+
+  <li class="list-group-item">
+        <span>D.3.5 Cladificacion Funcional</span>
+        <a href="./3er 2025/TITULO IV/D.3.5 Clasif Funcional.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+
+
+
+  <li class="list-group-item">
+        <span>D.4.1 Categoria Programatica</span>
+        <a href="./4to 2025/V/BIENES 2DO SEMESTRE 2025.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+
+</ul>
+
+
+
+  <h4 class="text-primary mt-4">TÍTULO V:</h4>
+
+<ul class="list-group mb-4">
+   <li class="list-group-item">
+        <span>D.1.11 Montos por ayudas</span>
+        <a href="./4to 2025/V/MONTOS PAGADOS.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+  <li class="list-group-item">
+        <span>D.2.6 Pasivos Conting</span>
+        <a href="./3er 2025/TITULO V/D.2.6 Pasivos Conting.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+
+<li class="list-group-item">
+        <span>D.3.6 Endeudamiento neto</span>
+        <a href="./3er 2025/TITULO V/D.3.6 Endeudamiento Neto.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+
+
+      <li class="list-group-item">
+        <span>D.3.7 Int Deuda</span>
+        <a href="./3er 2025/TITULO V/D.3.7 Int Deuda.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+
+
+      <li class="list-group-item">
+        <span>D.4.2 Indicadores</span>
+        <a href="./3er 2025/TITULO V/D.4.2 Indicadores.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+
+
+       <li class="list-group-item">
+        <span>D.4.3 Programas y proyectos</span>
+        <a href="./3er 2025/TITULO V/D.4.3 Programas y Proyectos.pdf" target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+  <li class="list-group-item">
+        <span>D.5.4 Bienes Muebles segundo semestre 2025</span>
+        <a href="./4to 2025/V/D 5.4. BIENES DE PATRIMONIO SEGUNDO SEMESTRE 2025.pdf"  target="_blank" class="btn btn-primary btn-sm">Ver</a>
+      </li>
+
+
+
+</ul>
+
+
+    
   </div>
-  <div class="modal-body" id="modal-body">
-    <span class="info-tag">Edita cada URL y guarda los cambios</span>
-  </div>
-  <div class="modal-footer">
-    <button class="btn-cancel" onclick="closeModal()">Cancelar</button>
-    <button class="btn-save" onclick="saveUrls()">💾 Guardar cambios</button>
-  </div>
-</div>
 
-<script>
-const DATA = [
-  {
-    quarter: "1er Trimestre",
-    emoji: "🌱",
-    titles: [
-      {
-        label: "Titulo IV INFORMACION PRAGMATICA",
-        docs: [
-          {name:"1. Estado de Situación Financiera", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20IV%20INFORMACION%20PRAGMATICA%2F1%20Edo%20Sit%20Financiera.pdf?alt=media"},
-          {name:"2. Estado de Actividades", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20IV%20INFORMACION%20PRAGMATICA%2F2%20Edo%20Actividades.pdf?alt=media"},
-          {name:"3. Estado de Variación de la Hacienda Pública", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20IV%20INFORMACION%20PRAGMATICA%2F3%20Edo%20Variacio%CC%81n%20Hda%20Pu%CC%81blica.pdf?alt=media"},
-          {name:"4. Estado de Cambio en la Situación Financiera", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20IV%20INFORMACION%20PRAGMATICA%2F4%20Edo%20Cambio%20Sit%20Financiera.pdf?alt=media"},
-          {name:"5. Estado de Flujo de Efectivo", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20IV%20INFORMACION%20PRAGMATICA%2F5%20Edo%20Flujo%20Efectivo.pdf?alt=media"},
-          {name:"6. Pasivos Contingentes", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20IV%20INFORMACION%20PRAGMATICA%2F6%20Pasivos%20Contingentes.pdf?alt=media"},
-          {name:"7. Notas a los Estados Financieros", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20IV%20INFORMACION%20PRAGMATICA%2F7%20Notas%20Financieras.pdf?alt=media"},
-          {name:"8. Estado Analítico del Activo", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20IV%20INFORMACION%20PRAGMATICA%2F8%20Edo%20A%20Activo.pdf?alt=media"},
-          {name:"9. Estado Analítico de la Deuda y Obligaciones", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20IV%20INFORMACION%20PRAGMATICA%2F9%20Edo%20A%20Deuda%20y%20Otros%20P.pdf?alt=media"},
-          {name:"10. Montos Pagados por Ayudas y Subsidios", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20IV%20INFORMACION%20PRAGMATICA%2F10%20Montos%20Pagados%20por%20Ayudas%20y%20Subsidios.pdf?alt=media"},
-          {name:"11. Estado Analítico de Ingresos", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20IV%20INFORMACION%20PRAGMATICA%2F11%20Estado%20Anali%CC%81tico%20de%20Ingresos.pdf?alt=media"},
-          {name:"12. Estado Analítico de Egresos — Objeto de Gasto", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20IV%20INFORMACION%20PRAGMATICA%2F12%20Estado%20Anali%CC%81tico%20de%20Egresos%20por%20Objeto%20de%20Gasto.pdf?alt=media"},
-          {name:"13. Estado Analítico de Egresos — Clasificación Económica", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20IV%20INFORMACION%20PRAGMATICA%2F13%20Estado%20Analitico%20del%20Ejercicio%20de%20Egresos%20por%20Clasificacion%20Economica.pdf?alt=media"},
-          {name:"14. Estado Analítico de Egresos — Clasificación Administrativa", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20IV%20INFORMACION%20PRAGMATICA%2F14%20Estado%20Analitico%20de%20Egresos%20por%20Clasificacion%20Administrativa.pdf?alt=media"},
-          {name:"15. Estado Analítico de Egresos — Clasificación Funcional", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20IV%20INFORMACION%20PRAGMATICA%2F15%20Estado%20Analitico%20del%20Ejercicio%20de%20Egresos%20Clasificacion%20Funcional.pdf?alt=media"},
-          {name:"16. Estado Analítico de Egresos — Clasificación Programática", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20IV%20INFORMACION%20PRAGMATICA%2F16%20Estado%20por%20Categoria%20Programatica.pdf?alt=media&token=4c9a48fd-5f2a-4656-abcd-b5498989f1ab"},
-        ]
-      },
-      {
-        label: "TÍTULO V: Información Programática",
-        docs: [
-          {name:"1 Montos Pagados por Ayudas y Subsidios.pdf", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20V%20INFORMACION%20PRAGMATICA%2F1%20Montos%20Pagados%20por%20Ayudas%20y%20Subsidios.pdf?alt=media"},
-          {name:"2 Endeudamiento Neto.pdf", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20V%20INFORMACION%20PRAGMATICA%2F2%20Endeudamiento%20Neto.pdf?alt=media"},
-          {name:"3 Intereses de la deuda.pdf", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20V%20INFORMACION%20PRAGMATICA%2F3%20Intereses%20de%20la%20deuda.pdf?alt=media"},
-          {name:"4. Programas y Proyectos de Inversión", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20V%20INFORMACION%20PRAGMATICA%2F4%20Programas%20y%20Proyectos%20de%20Inversio%CC%81n.pdf?alt=media"},
-          {name:"5. Indicadores de Resultados", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20V%20INFORMACION%20PRAGMATICA%2F5%20Indicadores%20de%20Resultados.pdf?alt=media"},
-        ]
-      }
-    ]
-  }
-];
-
-function getDocId(qi,ti,di){return `doc_${qi}_${ti}_${di}`}
-
-function render(){
-  const app=document.getElementById('app');
-  let html=`<p class="page-title">SMDIF Joquicingo — CONAC AÑO 2026</p>
-  <p class="page-sub">Información financiera conforme al CONAC | Sistema Municipal DIF Joquicingo</p>`;
-  DATA.forEach((q,qi)=>{
-    const total=q.titles.reduce((s,t)=>s+t.docs.length,0);
-    html+=`<div class="quarter-block">
-      <div class="q-header">${q.emoji} ${q.quarter} <span class="badge-count">${total} docs</span></div>`;
-    q.titles.forEach((t,ti)=>{
-      html+=`<div class="titulo-label">${t.label}</div>`;
-      t.docs.forEach((d,di)=>{
-        const id=getDocId(qi,ti,di);
-        const btnClass=d.url?'btn-ver':'btn-ver no-url';
-        const btn=d.url?`<a href="${d.url}" target="_blank" class="${btnClass}">Ver</a>`:`<span class="${btnClass}">Ver</span>`;
-        html+=`<div class="doc-item" id="${id}">
-          <span class="doc-name">${d.name}</span>
-          ${btn}
-        </div>`;
-      });
-    });
-    html+=`</div>`;
-  });
-  app.innerHTML=html;
-}
-
-function buildModal(){
-  const body=document.getElementById('modal-body');
-  let html=`<span class="info-tag">Pega las URLs de cada documento y guarda</span>`;
-  DATA.forEach((q,qi)=>{
-    html+=`<div class="modal-q"><div class="modal-q-title">${q.emoji} ${q.quarter}</div>`;
-    q.titles.forEach((t,ti)=>{
-      html+=`<div style="font-size:0.72rem;color:#aaa;margin:6px 0 4px;font-weight:600">${t.label}</div>`;
-      t.docs.forEach((d,di)=>{
-        const id=getDocId(qi,ti,di);
-        html+=`<div class="url-row">
-          <div class="url-label">${d.name}</div>
-          <input class="url-input" id="input_${id}" type="url" placeholder="https://..." value="${d.url}">
-        </div>`;
-      });
-    });
-    html+=`</div>`;
-  });
-  body.innerHTML=html;
-}
-
-function saveUrls(){
-  DATA.forEach((q,qi)=>{
-    q.titles.forEach((t,ti)=>{
-      t.docs.forEach((d,di)=>{
-        const id=getDocId(qi,ti,di);
-        const inp=document.getElementById('input_'+id);
-        if(inp) d.url=inp.value.trim();
-      });
-    });
-  });
-  render();
-  closeModal();
-}
-
-function openModal(){
-  buildModal();
-  document.getElementById('overlay').classList.add('open');
-  document.getElementById('modal').classList.add('open');
-}
-function closeModal(){
-  document.getElementById('overlay').classList.remove('open');
-  document.getElementById('modal').classList.remove('open');
-}
-
-render();
-</script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
