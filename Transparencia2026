@@ -1,0 +1,292 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Nunito',sans-serif;background:#fef6f9;color:#555;font-size:14px}
+  .navbar{background:linear-gradient(135deg,#FF9AA2,#FFB7B2);padding:10px 20px;display:flex;align-items:center;gap:10px;box-shadow:0 3px 12px rgba(0,0,0,0.1);position:sticky;top:0;z-index:100}
+  .brand{font-family:'Fredoka One',cursive;font-size:1.4rem;color:white;text-shadow:1px 1px 3px rgba(0,0,0,0.2);flex:1}
+  .btn-urls{background:white;color:#FF9AA2;border:none;padding:7px 14px;border-radius:20px;font-family:'Nunito',sans-serif;font-weight:700;font-size:12px;cursor:pointer;display:flex;align-items:center;gap:6px;transition:all 0.2s;white-space:nowrap}
+  .btn-urls:hover{background:#fff5f7;transform:scale(1.03)}
+  .container{max-width:900px;margin:0 auto;padding:20px 16px}
+  .page-title{font-family:'Fredoka One',cursive;color:#6A4C93;font-size:1.7rem;margin-bottom:4px}
+  .page-sub{color:#aaa;font-size:0.85rem;margin-bottom:24px}
+  .quarter-block{margin-bottom:32px}
+  .q-header{background:linear-gradient(135deg,#FF9AA2,#FFB7B2);color:white;border-radius:12px;padding:10px 16px;font-family:'Fredoka One',cursive;font-size:1.1rem;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+  .titulo-label{color:#6A4C93;font-weight:700;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;margin:12px 0 8px;padding-left:4px}
+  .doc-item{background:white;border-radius:10px;padding:11px 15px;margin-bottom:7px;box-shadow:0 2px 8px rgba(0,0,0,0.05);display:flex;justify-content:space-between;align-items:center;transition:all 0.2s;gap:10px}
+  .doc-item:hover{transform:translateX(3px);background:#fff5f7}
+  .doc-name{font-size:0.82rem;color:#555;flex:1}
+  .btn-ver{background:linear-gradient(135deg,#FF9AA2,#e8818b);color:white;border:none;padding:5px 14px;border-radius:20px;font-size:0.75rem;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;white-space:nowrap;transition:all 0.2s;text-decoration:none;display:inline-block}
+  .btn-ver:hover{opacity:0.85;transform:scale(1.04)}
+  .btn-ver.no-url{background:#ddd;color:#999;cursor:not-allowed;pointer-events:none}
+  .badge-count{background:#FFE0E4;color:#c7647d;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:10px}
+
+  /* MODAL */
+  .overlay{position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:200;opacity:0;pointer-events:none;transition:opacity 0.25s}
+  .overlay.open{opacity:1;pointer-events:all}
+  .modal{position:fixed;top:0;right:0;height:100%;width:360px;max-width:95vw;background:white;z-index:201;transform:translateX(100%);transition:transform 0.3s ease;display:flex;flex-direction:column;box-shadow:-4px 0 20px rgba(0,0,0,0.15)}
+  .modal.open{transform:translateX(0)}
+  .modal-head{background:linear-gradient(135deg,#FF9AA2,#FFB7B2);padding:16px;color:white;display:flex;justify-content:space-between;align-items:center}
+  .modal-head h2{font-family:'Fredoka One',cursive;font-size:1.1rem;color:white}
+  .modal-close{background:none;border:none;color:white;font-size:1.4rem;cursor:pointer;line-height:1}
+  .modal-body{flex:1;overflow-y:auto;padding:16px}
+  .modal-q{margin-bottom:18px}
+  .modal-q-title{font-weight:700;color:#6A4C93;font-size:0.8rem;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.4px}
+  .url-row{margin-bottom:8px;padding:8px;border-radius:8px;background:#f9f9f9;border:1px solid #f0e0e5}
+  .url-label{font-size:0.72rem;color:#888;margin-bottom:3px}
+  .url-input{width:100%;border:1px solid #e0c8cc;border-radius:6px;padding:5px 8px;font-size:0.72rem;font-family:'Nunito',sans-serif;color:#555;background:white}
+  .url-input:focus{outline:none;border-color:#FF9AA2}
+  .modal-footer{padding:12px 16px;border-top:1px solid #f0e0e5;display:flex;gap:8px}
+  .btn-save{background:linear-gradient(135deg,#FF9AA2,#e8818b);color:white;border:none;padding:8px 18px;border-radius:20px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.8rem;cursor:pointer;flex:1}
+  .btn-save:hover{opacity:0.88}
+  .btn-cancel{background:#f0e0e5;color:#c7647d;border:none;padding:8px 14px;border-radius:20px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.8rem;cursor:pointer}
+  .info-tag{display:inline-block;background:#E2F0CB;color:#4a7a2a;font-size:0.68rem;font-weight:700;padding:2px 7px;border-radius:8px;margin-bottom:10px}
+</style>
+
+<div class="navbar">
+  <span class="brand">❤️ DIF Joquicingo</span>
+  <button class="btn-urls" onclick="openModal()">📋 Ver lista de URLs</button>
+</div>
+
+<div class="container" id="app"></div>
+
+<div class="overlay" id="overlay" onclick="closeModal()"></div>
+<div class="modal" id="modal">
+  <div class="modal-head">
+    <h2>📋 Gestión de URLs</h2>
+    <button class="modal-close" onclick="closeModal()">✕</button>
+  </div>
+  <div class="modal-body" id="modal-body">
+    <span class="info-tag">Edita cada URL y guarda los cambios</span>
+  </div>
+  <div class="modal-footer">
+    <button class="btn-cancel" onclick="closeModal()">Cancelar</button>
+    <button class="btn-save" onclick="saveUrls()">💾 Guardar cambios</button>
+  </div>
+</div>
+
+<script>
+const DATA = [
+  {
+    quarter: "1er Trimestre",
+    emoji: "🌱",
+    titles: [
+      {
+        label: "Titulo IV INFORMACION PRAGMATICA",
+        docs: [
+          {name:"1. Estado de Situación Financiera", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20IV%20INFORMACION%20PRAGMATICA%2F1%20Edo%20Sit%20Financiera.pdf?alt=media"},
+          {name:"2. Estado de Actividades", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20IV%20INFORMACION%20PRAGMATICA%2F2%20Edo%20Actividades.pdf?alt=media"},
+          {name:"3. Estado de Variación de la Hacienda Pública", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20IV%20INFORMACION%20PRAGMATICA%2F3%20Edo%20Variacio%CC%81n%20Hda%20Pu%CC%81blica.pdf?alt=media"},
+          {name:"4. Estado de Cambio en la Situación Financiera", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20IV%20INFORMACION%20PRAGMATICA%2F4%20Edo%20Cambio%20Sit%20Financiera.pdf?alt=media"},
+          {name:"5. Estado de Flujo de Efectivo", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20IV%20INFORMACION%20PRAGMATICA%2F5%20Edo%20Flujo%20Efectivo.pdf?alt=media"},
+          {name:"6. Pasivos Contingentes", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20IV%20INFORMACION%20PRAGMATICA%2F6%20Pasivos%20Contingentes.pdf?alt=media"},
+          {name:"7. Notas a los Estados Financieros", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20IV%20INFORMACION%20PRAGMATICA%2F7%20Notas%20Financieras.pdf?alt=media"},
+          {name:"8. Estado Analítico del Activo", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20IV%20INFORMACION%20PRAGMATICA%2F8%20Edo%20A%20Activo.pdf?alt=media"},
+          {name:"9. Estado Analítico de la Deuda y Obligaciones", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20IV%20INFORMACION%20PRAGMATICA%2F9%20Edo%20A%20Deuda%20y%20Otros%20P.pdf?alt=media"},
+          {name:"10. Montos Pagados por Ayudas y Subsidios", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20IV%20INFORMACION%20PRAGMATICA%2F10%20Montos%20Pagados%20por%20Ayudas%20y%20Subsidios.pdf?alt=media"},
+          {name:"11. Estado Analítico de Ingresos", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20IV%20INFORMACION%20PRAGMATICA%2F11%20Estado%20Anali%CC%81tico%20de%20Ingresos.pdf?alt=media"},
+          {name:"12. Estado Analítico de Egresos — Objeto de Gasto", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20IV%20INFORMACION%20PRAGMATICA%2F12%20Estado%20Anali%CC%81tico%20de%20Egresos%20por%20Objeto%20de%20Gasto.pdf?alt=media"},
+          {name:"13. Estado Analítico de Egresos — Clasificación Económica", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20IV%20INFORMACION%20PRAGMATICA%2F13%20Estado%20Analitico%20del%20Ejercicio%20de%20Egresos%20por%20Clasificacion%20Economica.pdf?alt=media"},
+          {name:"14. Estado Analítico de Egresos — Clasificación Administrativa", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20IV%20INFORMACION%20PRAGMATICA%2F14%20Estado%20Analitico%20de%20Egresos%20por%20Clasificacion%20Administrativa.pdf?alt=media"},
+          {name:"15. Estado Analítico de Egresos — Clasificación Funcional", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20IV%20INFORMACION%20PRAGMATICA%2F15%20Estado%20Analitico%20del%20Ejercicio%20de%20Egresos%20Clasificacion%20Funcional.pdf?alt=media"},
+          {name:"16. Estado Analítico de Egresos — Clasificación Programática", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20IV%20INFORMACION%20PRAGMATICA%2F16%20Estado%20por%20Categoria%20Programatica.pdf?alt=media&token=4c9a48fd-5f2a-4656-abcd-b5498989f1ab"},
+        ]
+      },
+      {
+        label: "TÍTULO V: Información Programática",
+        docs: [
+          {name:"1 Montos Pagados por Ayudas y Subsidios.pdf", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20V%20INFORMACION%20PRAGMATICA%2F1%20Montos%20Pagados%20por%20Ayudas%20y%20Subsidios.pdf?alt=media"},
+          {name:"2 Endeudamiento Neto.pdf", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20V%20INFORMACION%20PRAGMATICA%2F2%20Endeudamiento%20Neto.pdf?alt=media"},
+          {name:"3 Intereses de la deuda.pdf", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20V%20INFORMACION%20PRAGMATICA%2F3%20Intereses%20de%20la%20deuda.pdf?alt=media"},
+          {name:"4. Programas y Proyectos de Inversión", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20V%20INFORMACION%20PRAGMATICA%2F4%20Programas%20y%20Proyectos%20de%20Inversio%CC%81n.pdf?alt=media"},
+          {name:"5. Indicadores de Resultados", url:"https://firebasestorage.googleapis.com/v0/b/bitralspace.firebasestorage.app/o/joquicingo2025-2027%2Ftransparencia%2Fdif%2FCONAC%202026%2FTitulo%20V%20INFORMACION%20PRAGMATICA%2F5%20Indicadores%20de%20Resultados.pdf?alt=media"},
+        ]
+      }
+    ]
+  },
+  {
+    quarter: "2do Trimestre",
+    emoji: "☀️",
+    titles: [
+      {
+        label: "TÍTULO IV: Información Contable",
+        docs: [
+          {name:"1. Estado de Situación Financiera", url:""},
+          {name:"2. Estado de Actividades", url:""},
+          {name:"3. Estado de Variación de la Hacienda Pública", url:""},
+          {name:"4. Estado de Cambio en la Situación Financiera", url:""},
+          {name:"5. Estado de Flujo de Efectivo", url:""},
+          {name:"6. Pasivos Contingentes", url:""},
+          {name:"7. Notas a los Estados Financieros", url:""},
+          {name:"8. Estado Analítico del Activo", url:""},
+          {name:"9. Estado Analítico de la Deuda y Obligaciones", url:""},
+          {name:"10. Montos Pagados por Ayudas y Subsidios", url:""},
+          {name:"11. Estado Analítico de Ingresos", url:""},
+          {name:"12. Estado Analítico de Egresos — Objeto de Gasto", url:""},
+          {name:"13. Estado Analítico de Egresos — Clasificación Económica", url:""},
+          {name:"14. Estado Analítico de Egresos — Clasificación Administrativa", url:""},
+          {name:"15. Estado Analítico de Egresos — Clasificación Funcional", url:""},
+          {name:"16. Estado Analítico de Egresos — Clasificación Programática", url:""},
+        ]
+      },
+      {
+        label: "TÍTULO V: Información Programática",
+        docs: [
+          {name:"1. Montos Pagados por Ayudas y Subsidios", url:""},
+          {name:"2. Endeudamiento Neto", url:""},
+          {name:"3. Intereses de la Deuda", url:""},
+          {name:"4. Programas y Proyectos de Inversión", url:""},
+          {name:"5. Indicadores de Resultados", url:""},
+          {name:"6. Relación de Bienes Muebles e Inmuebles", url:""},
+        ]
+      }
+    ]
+  },
+  {
+    quarter: "3er Trimestre",
+    emoji: "🍂",
+    titles: [
+      {
+        label: "TÍTULO IV: Información Contable y Presupuestal",
+        docs: [
+          {name:"D.2.1 Estado de Actividades", url:""},
+          {name:"D.2.2 Estado de Situación Financiera", url:""},
+          {name:"D.2.3 Estado Variación Hacienda Pública", url:""},
+          {name:"D.2.4 Estado Cambios SF", url:""},
+          {name:"D.2.5 Estado Flujo de Efectivo", url:""},
+          {name:"D.2.7 Notas a los Estados Financieros", url:""},
+          {name:"D.2.8 Estado Analítico del Activo", url:""},
+          {name:"D.2.9 Estado Analítico de la Deuda", url:""},
+          {name:"D.3.1 Estado Analítico de Ingresos", url:""},
+          {name:"D.3.2 Clasificación Administrativa", url:""},
+          {name:"D.3.3 Clasificación Económica", url:""},
+          {name:"D.3.4 Clasificación Objeto del Gasto", url:""},
+          {name:"D.3.5 Clasificación Funcional", url:""},
+          {name:"D.4.1 Categoría Programática", url:""},
+        ]
+      },
+      {
+        label: "TÍTULO V",
+        docs: [
+          {name:"D.1.11 Montos por Ayudas", url:""},
+          {name:"D.2.6 Pasivos Contingentes", url:""},
+          {name:"D.3.6 Endeudamiento Neto", url:""},
+          {name:"D.3.7 Intereses de la Deuda", url:""},
+          {name:"D.4.2 Indicadores", url:""},
+          {name:"D.4.3 Programas y Proyectos", url:""},
+        ]
+      }
+    ]
+  },
+  {
+    quarter: "4to Trimestre",
+    emoji: "❄️",
+    titles: [
+      {
+        label: "TÍTULO IV: Información Contable y Presupuestal",
+        docs: [
+          {name:"D.2.1 Estado de Actividades", url:""},
+          {name:"D.2.2 Estado de Situación Financiera", url:""},
+          {name:"D.2.3 Estado Variación Hacienda Pública", url:""},
+          {name:"D.2.4 Estado Cambios SF", url:""},
+          {name:"D.2.5 Estado Flujo de Efectivo", url:""},
+          {name:"D.2.7 Notas a los Estados Financieros", url:""},
+          {name:"D.2.8 Estado Analítico del Activo", url:""},
+          {name:"D.2.9 Estado Analítico de la Deuda", url:""},
+          {name:"D.3.1 Estado Analítico de Ingresos", url:""},
+          {name:"D.3.2 Clasificación Administrativa", url:""},
+          {name:"D.3.3 Clasificación Económica", url:""},
+          {name:"D.3.4 Clasificación Objeto del Gasto", url:""},
+          {name:"D.3.5 Clasificación Funcional", url:""},
+          {name:"D.4.1 Categoría Programática", url:""},
+        ]
+      },
+      {
+        label: "TÍTULO V",
+        docs: [
+          {name:"D.1.11 Montos por Ayudas", url:""},
+          {name:"D.2.6 Pasivos Contingentes", url:""},
+          {name:"D.3.6 Endeudamiento Neto", url:""},
+          {name:"D.3.7 Intereses de la Deuda", url:""},
+          {name:"D.4.2 Indicadores", url:""},
+          {name:"D.4.3 Programas y Proyectos", url:""},
+          {name:"D.5.4 Bienes Muebles e Inmuebles", url:""},
+        ]
+      }
+    ]
+  }
+];
+
+function getDocId(qi,ti,di){return `doc_${qi}_${ti}_${di}`}
+
+function render(){
+  const app=document.getElementById('app');
+  let html=`<p class="page-title">SMDIF Joquicingo — CONAC AÑO 2026</p>
+  <p class="page-sub">Información financiera conforme al CONAC | Sistema Municipal DIF Joquicingo</p>`;
+  DATA.forEach((q,qi)=>{
+    const total=q.titles.reduce((s,t)=>s+t.docs.length,0);
+    html+=`<div class="quarter-block">
+      <div class="q-header">${q.emoji} ${q.quarter} <span class="badge-count">${total} docs</span></div>`;
+    q.titles.forEach((t,ti)=>{
+      html+=`<div class="titulo-label">${t.label}</div>`;
+      t.docs.forEach((d,di)=>{
+        const id=getDocId(qi,ti,di);
+        const btnClass=d.url?'btn-ver':'btn-ver no-url';
+        const btn=d.url?`<a href="${d.url}" target="_blank" class="${btnClass}">Ver</a>`:`<span class="${btnClass}">Ver</span>`;
+        html+=`<div class="doc-item" id="${id}">
+          <span class="doc-name">${d.name}</span>
+          ${btn}
+        </div>`;
+      });
+    });
+    html+=`</div>`;
+  });
+  app.innerHTML=html;
+}
+
+function buildModal(){
+  const body=document.getElementById('modal-body');
+  let html=`<span class="info-tag">Pega las URLs de cada documento y guarda</span>`;
+  DATA.forEach((q,qi)=>{
+    html+=`<div class="modal-q"><div class="modal-q-title">${q.emoji} ${q.quarter}</div>`;
+    q.titles.forEach((t,ti)=>{
+      html+=`<div style="font-size:0.72rem;color:#aaa;margin:6px 0 4px;font-weight:600">${t.label}</div>`;
+      t.docs.forEach((d,di)=>{
+        const id=getDocId(qi,ti,di);
+        html+=`<div class="url-row">
+          <div class="url-label">${d.name}</div>
+          <input class="url-input" id="input_${id}" type="url" placeholder="https://..." value="${d.url}">
+        </div>`;
+      });
+    });
+    html+=`</div>`;
+  });
+  body.innerHTML=html;
+}
+
+function saveUrls(){
+  DATA.forEach((q,qi)=>{
+    q.titles.forEach((t,ti)=>{
+      t.docs.forEach((d,di)=>{
+        const id=getDocId(qi,ti,di);
+        const inp=document.getElementById('input_'+id);
+        if(inp) d.url=inp.value.trim();
+      });
+    });
+  });
+  render();
+  closeModal();
+}
+
+function openModal(){
+  buildModal();
+  document.getElementById('overlay').classList.add('open');
+  document.getElementById('modal').classList.add('open');
+}
+function closeModal(){
+  document.getElementById('overlay').classList.remove('open');
+  document.getElementById('modal').classList.remove('open');
+}
+
+render();
+</script>
